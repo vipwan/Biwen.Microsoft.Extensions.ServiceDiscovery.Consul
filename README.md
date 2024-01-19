@@ -123,8 +123,8 @@ internal partial class AppJsonSerializerContext : JsonSerializerContext
 }
 
 
-
-
-
-
 ```
+### 3 More
+
+[Microsoft.Extensions.ServiceDiscovery](https://github.com/dotnet/aspire/tree/main/src/Microsoft.Extensions.ServiceDiscovery)
+
