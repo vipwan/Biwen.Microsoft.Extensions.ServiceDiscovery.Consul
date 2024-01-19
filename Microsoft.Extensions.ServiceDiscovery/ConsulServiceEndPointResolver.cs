@@ -18,7 +18,9 @@ namespace Biwen.Microsoft.Extensions.ServiceDiscovery
 
         public string DisplayName => Name;
 
+#pragma warning disable CA1816 // Dispose 方法应调用 SuppressFinalize
         public ValueTask DisposeAsync() => default;
+#pragma warning restore CA1816 // Dispose 方法应调用 SuppressFinalize
 
         public async ValueTask<ResolutionStatus> ResolveAsync(ServiceEndPointCollectionSource endPoints, CancellationToken cancellationToken)
         {

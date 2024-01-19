@@ -14,6 +14,9 @@ dotnet add package Biwen.Microsoft.Extensions.ServiceDiscovery.Consul -pre
 
 ### 2 Enjoy
 
+`builder.Services.AddServiceDiscovery().AddConsulServiceEndPointResolver();`
+
+
 ```csharp
 
 using Consul.AspNetCore;

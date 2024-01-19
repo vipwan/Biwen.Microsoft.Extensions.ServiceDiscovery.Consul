@@ -4,7 +4,34 @@
 		<TargetFramework>net8.0</TargetFramework>
 		<ImplicitUsings>enable</ImplicitUsings>
 		<Nullable>enable</Nullable>
+
+		<PackageVersion>1.0.0.0-pre1</PackageVersion>
+		<TargetFrameworks>net8.0</TargetFrameworks>
+		<PackageProjectUrl>https://github.com/vipwan/Biwen.Microsoft.Extensions.ServiceDiscovery.Consul</PackageProjectUrl>
+		<Authors>万雅虎</Authors>
+		<RepositoryUrl>https://github.com/vipwan/Biwen.Microsoft.Extensions.ServiceDiscovery.Consul</RepositoryUrl>
+		<Title>Biwen.Microsoft.Extensions.ServiceDiscovery.Consul</Title>
+		<Description>Biwen.Microsoft.Extensions.ServiceDiscovery.Consul</Description>
+		<Copyright>MIT</Copyright>
+		<PackageReadmeFile>README.md</PackageReadmeFile>
+		<PackageTags>ServiceDiscovery;Consul</PackageTags>
+		<PackageReleaseNotes>init</PackageReleaseNotes>
+		<PackageLicenseFile>LICENSE.txt</PackageLicenseFile>
+		<AssemblyVersion>1.0.0</AssemblyVersion>
+		<FileVersion>1.0.0</FileVersion>
+
 	</PropertyGroup>
+
+	<ItemGroup>
+		<None Include="..\LICENSE.txt">
+			<Pack>True</Pack>
+			<PackagePath>\</PackagePath>
+		</None>
+		<None Include="..\README.md">
+			<Pack>True</Pack>
+			<PackagePath>\</PackagePath>
+		</None>
+	</ItemGroup>
 
 	<ItemGroup>
 		<PackageReference Include="Consul.AspNetCore" Version="1.7.14.2" />
