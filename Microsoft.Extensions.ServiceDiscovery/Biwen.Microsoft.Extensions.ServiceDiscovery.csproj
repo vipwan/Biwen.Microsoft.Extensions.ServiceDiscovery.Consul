@@ -34,7 +34,7 @@
 	</ItemGroup>
 
 	<ItemGroup>
-		<PackageReference Include="Consul.AspNetCore" Version="1.7.14.2" />
+		<PackageReference Include="Consul.AspNetCore" Version="1.7.14.3" />
 		<PackageReference Include="Microsoft.Extensions.ServiceDiscovery" Version="8.0.0-preview.2.23619.3" />
 	</ItemGroup>
 
