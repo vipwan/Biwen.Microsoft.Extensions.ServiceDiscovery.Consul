@@ -1,9 +1,6 @@
-﻿using Consul;
-using Microsoft.Extensions.ServiceDiscovery.Abstractions;
-using System.Diagnostics.CodeAnalysis;
-
-namespace Biwen.Microsoft.Extensions.ServiceDiscovery
+﻿namespace Biwen.Microsoft.Extensions.ServiceDiscovery
 {
+    using System.Diagnostics.CodeAnalysis;
     public class ConsulServiceEndPointResolverProvider(IConsulClient consulClient) : IServiceEndPointResolverProvider
     {
         private readonly IConsulClient _consulClient = consulClient;

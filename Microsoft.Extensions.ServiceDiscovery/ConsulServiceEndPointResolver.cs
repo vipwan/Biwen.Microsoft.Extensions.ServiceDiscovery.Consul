@@ -1,8 +1,4 @@
-﻿using Biwen.Microsoft.Extensions.ServiceDiscovery.Internal;
-using Consul;
-using Microsoft.Extensions.ServiceDiscovery.Abstractions;
-
-namespace Biwen.Microsoft.Extensions.ServiceDiscovery
+﻿namespace Biwen.Microsoft.Extensions.ServiceDiscovery
 {
 
     public class ConsulServiceEndPointResolver(string serviceName, IConsulClient consulClient) : IServiceEndPointResolver //, IHostNameFeature

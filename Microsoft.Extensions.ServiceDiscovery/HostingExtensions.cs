@@ -1,8 +1,4 @@
-﻿using Biwen.Microsoft.Extensions.ServiceDiscovery;
-using Microsoft.Extensions.DependencyInjection;
-using Microsoft.Extensions.ServiceDiscovery.Abstractions;
-
-namespace Microsoft.Extensions.Hosting
+﻿namespace Microsoft.Extensions.Hosting
 {
     public static class HostingExtensions
     {
