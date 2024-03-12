@@ -1,7 +1,7 @@
 ﻿namespace Biwen.Microsoft.Extensions.ServiceDiscovery
 {
 
-    public class ConsulServiceEndPointResolver(string serviceName, IConsulClient consulClient) : IServiceEndPointResolver //, IHostNameFeature
+    internal class ConsulServiceEndPointResolver(string serviceName, IConsulClient consulClient) : IServiceEndPointResolver //, IHostNameFeature
     {
 
         const string Name = "Consul";
