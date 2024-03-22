@@ -1,7 +1,6 @@
 ﻿namespace Biwen.Microsoft.Extensions.ServiceDiscovery
 {
-
-    internal class ConsulServiceEndPointResolver(string serviceName, IConsulClient consulClient) : IServiceEndPointResolver //, IHostNameFeature
+    internal class ConsulServiceEndPointProvider(string serviceName, IConsulClient consulClient) : IServiceEndPointProvider //, IHostNameFeature
     {
 
         const string Name = "Consul";
@@ -11,8 +10,6 @@
         private readonly IConsulClient _consulClient = consulClient;
 
         public string HostName => _serviceName;
-
-        public string DisplayName => Name;
 
 #pragma warning disable CA1816 // Dispose 方法应调用 SuppressFinalize
         public ValueTask DisposeAsync() => default;
