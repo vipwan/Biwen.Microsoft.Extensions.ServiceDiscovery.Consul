@@ -5,7 +5,7 @@
 		<ImplicitUsings>enable</ImplicitUsings>
 		<Nullable>enable</Nullable>
 
-		<PackageVersion>1.0.0.0-pre4</PackageVersion>
+		<PackageVersion>1.0.0.0-pre5</PackageVersion>
 		<TargetFrameworks>net8.0</TargetFrameworks>
 		<PackageProjectUrl>https://github.com/vipwan/Biwen.Microsoft.Extensions.ServiceDiscovery.Consul</PackageProjectUrl>
 		<Authors>万雅虎</Authors>
