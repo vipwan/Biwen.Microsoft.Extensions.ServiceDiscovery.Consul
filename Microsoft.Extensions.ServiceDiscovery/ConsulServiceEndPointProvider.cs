@@ -1,11 +1,13 @@
-﻿namespace Biwen.Microsoft.Extensions.ServiceDiscovery
+﻿using Microsoft.Extensions.ServiceDiscovery;
+
+namespace Biwen.Microsoft.Extensions.ServiceDiscovery
 {
-    internal class ConsulServiceEndPointProvider(string serviceName, IConsulClient consulClient) : IServiceEndPointProvider //, IHostNameFeature
+    internal class ConsulServiceEndPointProvider(ServiceEndPointQuery query, IConsulClient consulClient) : IServiceEndPointProvider //, IHostNameFeature
     {
 
         const string Name = "Consul";
 
-        private readonly string _serviceName = serviceName;
+        private readonly string _serviceName = query.ServiceName;
 
         private readonly IConsulClient _consulClient = consulClient;
 
@@ -13,11 +15,11 @@
 
 #pragma warning disable CA1816 // Dispose 方法应调用 SuppressFinalize
         public ValueTask DisposeAsync() => default;
-#pragma warning restore CA1816 // Dispose 方法应调用 SuppressFinalize
 
-        public async ValueTask<ResolutionStatus> ResolveAsync(ServiceEndPointCollectionSource endPoints, CancellationToken cancellationToken)
+        public async ValueTask PopulateAsync(IServiceEndPointBuilder endPoints, CancellationToken cancellationToken)
         {
-            var flag = ServiceNameParts.TryParse(endPoints.ServiceName, out var serviceNameParts);
+
+            var flag = ServiceNameParts.TryParse(_serviceName, out var serviceNameParts);
             if (flag)
             {
                 var queryResult = await _consulClient.Health.Service(serviceNameParts.Host, string.Empty, true, cancellationToken);
@@ -31,15 +33,7 @@
                         endPoints.EndPoints.Add(ServiceEndPoint.Create(endPoint!));
                     }
                 }
-
-                if (endPoints.EndPoints.Count == 0)
-                {
-                    return new ResolutionStatus(ResolutionStatusCode.NotFound, null, null!);
-                }
-                return new ResolutionStatus(ResolutionStatusCode.Success, null, null!);
             }
-            // 转换失败的情况
-            return new ResolutionStatus(ResolutionStatusCode.Error, null, null!);
         }
 
         public override string ToString() => Name;

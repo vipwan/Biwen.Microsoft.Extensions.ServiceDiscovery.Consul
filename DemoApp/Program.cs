@@ -1,6 +1,5 @@
 ﻿using Consul.AspNetCore;
 using Microsoft.AspNetCore.Antiforgery;
-using Microsoft.Extensions.ServiceDiscovery.Abstractions;
 using System.Text.Json.Serialization;
 
 var builder = WebApplication.CreateSlimBuilder(args);
@@ -44,7 +43,8 @@ builder.Services.AddServiceDiscovery().AddConsulServiceEndPointResolver();
 builder.Services.ConfigureHttpClientDefaults(static http =>
 {
     // 可以使用自己的算法 下面使用随机算法
-    http.UseServiceDiscovery(RandomServiceEndPointSelectorProvider.Instance);
+    //http.UseServiceDiscovery(RandomServiceEndPointSelectorProvider.Instance);
+    http.AddServiceDiscovery();
 });
 
 //使用IHttpClientFactory

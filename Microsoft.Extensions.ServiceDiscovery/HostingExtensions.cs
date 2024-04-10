@@ -1,5 +1,8 @@
-﻿namespace Microsoft.Extensions.Hosting
+﻿using Microsoft.Extensions.ServiceDiscovery;
+
+namespace Microsoft.Extensions.Hosting
 {
+
     public static class HostingExtensions
     {
         /// <summary>
@@ -10,7 +13,7 @@
         public static IServiceCollection AddConsulServiceEndPointResolver(this IServiceCollection services)
         {
             services.AddServiceDiscoveryCore();
-            services.AddSingleton<IServiceEndPointResolverProvider, ConsulServiceEndPointResolverProvider>();
+            services.AddSingleton<IServiceEndPointProviderFactory, ConsulServiceEndPointProviderFactory>();
             return services;
         }
     }
