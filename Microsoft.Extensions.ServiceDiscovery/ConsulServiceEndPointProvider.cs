@@ -3,14 +3,15 @@ using Microsoft.Extensions.ServiceDiscovery;
 
 namespace Biwen.Microsoft.Extensions.ServiceDiscovery
 {
-    internal class ConsulServiceEndPointProvider(ServiceEndPointQuery query, IConsulClient consulClient, ILogger logger) : IServiceEndPointProvider //, IHostNameFeature
+    internal class ConsulServiceEndPointProvider(ServiceEndPointQuery query, IConsulClient consulClient, ILogger logger)
+        : IServiceEndPointProvider, IHostNameFeature
     {
         const string Name = "Consul";
         private readonly string _serviceName = query.ServiceName;
         private readonly IConsulClient _consulClient = consulClient;
         private readonly ILogger _logger = logger;
 
-        public string HostName => _serviceName;
+        public string HostName => query.ServiceName;
 
 #pragma warning disable CA1816 // Dispose 方法应调用 SuppressFinalize
         public ValueTask DisposeAsync() => default;
@@ -29,7 +30,10 @@ namespace Biwen.Microsoft.Extensions.ServiceDiscovery
                     if (isEndpoint)
                     {
                         ++sum;
-                        endPoints.EndPoints.Add(ServiceEndPoint.Create(endPoint!));
+                        var serviceEndPoint = ServiceEndPoint.Create(endPoint!);
+                        serviceEndPoint.Features.Set<IServiceEndPointProvider>(this);
+                        serviceEndPoint.Features.Set<IHostNameFeature>(this);
+                        endPoints.EndPoints.Add(serviceEndPoint);
                         _logger.LogInformation($"ConsulServiceEndPointProvider Found Service {_serviceName}:{address}");
                     }
                 }
@@ -37,10 +41,11 @@ namespace Biwen.Microsoft.Extensions.ServiceDiscovery
 
             if (sum == 0)
             {
-                _logger.LogWarning($"ConsulServiceEndPointProvider Found Service {_serviceName} not found");
+                _logger.LogWarning($"No ConsulServiceEndPointProvider were found for service '{_serviceName}' ('{HostName}').");
             }
         }
 
+        /// <inheritdoc/>
         public override string ToString() => Name;
     }
 }
