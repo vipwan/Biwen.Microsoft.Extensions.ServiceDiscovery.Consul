@@ -54,18 +54,11 @@ builder.Services.AddConsul().AddConsulServiceRegistration(cfg =>
 
 
 // 使用Microsoft.Extensions.ServiceDiscovery实现负载均衡 & Consul
-builder.Services.AddServiceDiscovery().AddConsulServiceEndPointResolver();
-
-// 默认是轮询算法,当前包含了
-// RoundRobinServiceEndPointSelectorProvider轮询,
-// RandomServiceEndPointSelectorProvider随即,
-// PickFirstServiceEndPointSelectorProvider第一个.
-// PowerOfTwoChoicesServiceEndPointSelectorProvider选择负载最轻的端点进行分布式负载均衡，当提供的任何一个端点不具备该功能时，降级为随机选择端点
+builder.Services.AddServiceDiscovery().AddConsulServiceEndpointProvider();
 
 builder.Services.ConfigureHttpClientDefaults(static http =>
 {
-    // 可以使用自己的算法 下面使用随机算法
-    http.UseServiceDiscovery(RandomServiceEndPointSelectorProvider.Instance);
+    http.UseServiceDiscovery();
 });
 
 //使用IHttpClientFactory
