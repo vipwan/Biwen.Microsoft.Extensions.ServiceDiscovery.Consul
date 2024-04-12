@@ -27,10 +27,10 @@ using System.Text.Json.Serialization;
 var builder = WebApplication.CreateSlimBuilder(args);
 
 //健康监测
-builder.Services.AddHealthChecks().AddCheck("test", () =>
+builder.Services.AddHealthChecks().AddCheck("default", () =>
 {
     return new Microsoft.Extensions.Diagnostics.HealthChecks.HealthCheckResult(
-        Microsoft.Extensions.Diagnostics.HealthChecks.HealthStatus.Healthy, "健康检测");
+        Microsoft.Extensions.Diagnostics.HealthChecks.HealthStatus.Healthy, "Healthy");
 });
 
 //注册 Consul服务和发现

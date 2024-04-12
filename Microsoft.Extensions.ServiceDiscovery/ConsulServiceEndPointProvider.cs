@@ -23,6 +23,13 @@ namespace Biwen.Microsoft.Extensions.ServiceDiscovery
             if (flag)
             {
                 var queryResult = await _consulClient.Health.Service(serviceNameParts.Host, string.Empty, true, cancellationToken);
+
+                if (queryResult.Response is null)
+                {
+                    _logger.LogError($"The Consul server request is abnormal, please confirm that the service is available!");
+                    return;
+                }
+
                 foreach (var serviceEntry in queryResult.Response)
                 {
                     var address = $"{serviceEntry.Service.Address}:{serviceEntry.Service.Port}";

@@ -5,14 +5,19 @@ using System.Text.Json.Serialization;
 var builder = WebApplication.CreateSlimBuilder(args);
 
 //健康监测
-builder.Services.AddHealthChecks().AddCheck("test", () =>
+builder.Services.AddHealthChecks().AddCheck("default", () =>
 {
     return new Microsoft.Extensions.Diagnostics.HealthChecks.HealthCheckResult(
         Microsoft.Extensions.Diagnostics.HealthChecks.HealthStatus.Healthy, "healthy");
 });
 
 //注册 Consul服务和发现
-builder.Services.AddConsul().AddConsulServiceRegistration(cfg =>
+builder.Services.AddConsul(o =>
+{
+    // Consul地址.如果非本地请修改
+    o.Address = new("http://127.0.0.1:8500");
+
+}).AddConsulServiceRegistration(cfg =>
     {
         cfg.Meta = new Dictionary<string, string>() { { "Weight", "1" } };
         cfg.ID = "SVC1";
@@ -32,7 +37,11 @@ builder.Services.AddConsul().AddConsulServiceRegistration(cfg =>
 
 
 // 使用Microsoft.Extensions.ServiceDiscovery实现负载均衡
-builder.Services.AddServiceDiscovery()
+builder.Services.AddServiceDiscovery(o =>
+{
+    //设置Provider10秒刷新 用于测试所以频率有意调快
+    o.RefreshPeriod = TimeSpan.FromSeconds(10d);
+})
     .AddConfigurationServiceEndPointResolver() //config
     .AddConsulServiceEndpointProvider(); //consul
 
