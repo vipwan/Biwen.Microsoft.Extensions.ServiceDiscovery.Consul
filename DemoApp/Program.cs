@@ -42,7 +42,7 @@ builder.Services.AddServiceDiscovery(o =>
     //设置Provider10秒刷新 用于测试所以频率有意调快
     o.RefreshPeriod = TimeSpan.FromSeconds(10d);
 })
-    .AddConfigurationServiceEndPointResolver() //config
+    .AddConfigurationServiceEndpointProvider() //config
     .AddConsulServiceEndpointProvider(); //consul
 
 builder.Services.ConfigureHttpClientDefaults(static http =>

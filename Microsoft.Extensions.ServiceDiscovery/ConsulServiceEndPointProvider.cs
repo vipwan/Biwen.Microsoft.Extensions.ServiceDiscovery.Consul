@@ -3,8 +3,8 @@ using Microsoft.Extensions.ServiceDiscovery;
 
 namespace Biwen.Microsoft.Extensions.ServiceDiscovery
 {
-    internal class ConsulServiceEndPointProvider(ServiceEndPointQuery query, IConsulClient consulClient, ILogger logger)
-        : IServiceEndPointProvider, IHostNameFeature
+    internal class ConsulServiceEndPointProvider(ServiceEndpointQuery query, IConsulClient consulClient, ILogger logger)
+        : IServiceEndpointProvider, IHostNameFeature
     {
         const string Name = "Consul";
         private readonly string _serviceName = query.ServiceName;
@@ -13,10 +13,9 @@ namespace Biwen.Microsoft.Extensions.ServiceDiscovery
 
         public string HostName => query.ServiceName;
 
-#pragma warning disable CA1816 // Dispose 方法应调用 SuppressFinalize
         public ValueTask DisposeAsync() => default;
 
-        public async ValueTask PopulateAsync(IServiceEndPointBuilder endPoints, CancellationToken cancellationToken)
+        public async ValueTask PopulateAsync(IServiceEndpointBuilder endPoints, CancellationToken cancellationToken)
         {
             var flag = ServiceNameParts.TryParse(_serviceName, out var serviceNameParts);
             var sum = 0;
@@ -37,10 +36,10 @@ namespace Biwen.Microsoft.Extensions.ServiceDiscovery
                     if (isEndpoint)
                     {
                         ++sum;
-                        var serviceEndPoint = ServiceEndPoint.Create(endPoint!);
-                        serviceEndPoint.Features.Set<IServiceEndPointProvider>(this);
+                        var serviceEndPoint = ServiceEndpoint.Create(endPoint!);
+                        serviceEndPoint.Features.Set<IServiceEndpointProvider>(this);
                         serviceEndPoint.Features.Set<IHostNameFeature>(this);
-                        endPoints.EndPoints.Add(serviceEndPoint);
+                        endPoints.Endpoints.Add(serviceEndPoint);
                         _logger.LogInformation($"ConsulServiceEndPointProvider Found Service {_serviceName}:{address}");
                     }
                 }

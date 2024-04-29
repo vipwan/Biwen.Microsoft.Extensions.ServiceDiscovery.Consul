@@ -15,7 +15,7 @@ namespace Microsoft.Extensions.Hosting
         public static IServiceCollection AddConsulServiceEndPointResolver(this IServiceCollection services)
         {
             services.AddServiceDiscoveryCore();
-            services.AddSingleton<IServiceEndPointProviderFactory, ConsulServiceEndPointProviderFactory>();
+            services.AddSingleton<IServiceEndpointProviderFactory, ConsulServiceEndPointProviderFactory>();
             return services;
         }
 
@@ -27,7 +27,7 @@ namespace Microsoft.Extensions.Hosting
         public static IServiceCollection AddConsulServiceEndpointProvider(this IServiceCollection services)
         {
             services.AddServiceDiscoveryCore();
-            services.AddSingleton<IServiceEndPointProviderFactory, ConsulServiceEndPointProviderFactory>();
+            services.AddSingleton<IServiceEndpointProviderFactory, ConsulServiceEndPointProviderFactory>();
             return services;
         }
 
