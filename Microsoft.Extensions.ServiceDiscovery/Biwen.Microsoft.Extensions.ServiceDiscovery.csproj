@@ -15,7 +15,7 @@
 		<Copyright>MIT</Copyright>
 		<PackageReadmeFile>README.md</PackageReadmeFile>
 		<PackageTags>ServiceDiscovery;Consul</PackageTags>
-		<PackageReleaseNotes>Upgrade to Microsoft.Extensions.ServiceDiscovery 8.0.2</PackageReleaseNotes>
+		<PackageReleaseNotes>Upgrade to Microsoft.Extensions.ServiceDiscovery 8.1.0</PackageReleaseNotes>
 		<PackageLicenseFile>LICENSE.txt</PackageLicenseFile>
 		<AssemblyVersion>1.0.1</AssemblyVersion>
 		<FileVersion>1.0.0</FileVersion>
@@ -35,7 +35,7 @@
 
 	<ItemGroup>
 		<PackageReference Include="Consul.AspNetCore" Version="1.7.14.4" />
-		<PackageReference Include="Microsoft.Extensions.ServiceDiscovery" Version="8.0.2" />
+		<PackageReference Include="Microsoft.Extensions.ServiceDiscovery" Version="8.1.0" />
 	</ItemGroup>
 
 </Project>
