@@ -1,5 +1,4 @@
 ﻿using Consul.AspNetCore;
-using Microsoft.AspNetCore.Antiforgery;
 using System.Text.Json.Serialization;
 
 var builder = WebApplication.CreateSlimBuilder(args);

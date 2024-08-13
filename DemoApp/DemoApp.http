@@ -9,3 +9,7 @@ GET {{DemoApp_HostAddress}}/todos/1
 Accept: application/json
 
 ###
+
+GET {{DemoApp_HostAddress}}/test
+
+###

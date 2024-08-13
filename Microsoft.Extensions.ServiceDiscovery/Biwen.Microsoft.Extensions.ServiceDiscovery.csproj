@@ -19,6 +19,7 @@
 		<PackageLicenseFile>LICENSE.txt</PackageLicenseFile>
 		<AssemblyVersion>1.0.1</AssemblyVersion>
 		<FileVersion>1.0.0</FileVersion>
+		<NoWarn>IDE0130;</NoWarn>
 
 	</PropertyGroup>
 

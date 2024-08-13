@@ -8,7 +8,7 @@
 
 ```shell
 
-dotnet add package Biwen.Microsoft.Extensions.ServiceDiscovery.Consul --prerelease
+dotnet add package Biwen.Microsoft.Extensions.ServiceDiscovery.Consul
 
 ```
 
