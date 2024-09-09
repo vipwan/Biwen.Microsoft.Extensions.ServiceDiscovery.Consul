@@ -5,7 +5,7 @@
 		<ImplicitUsings>enable</ImplicitUsings>
 		<Nullable>enable</Nullable>
 
-		<PackageVersion>1.0.1</PackageVersion>
+		<PackageVersion>1.0.2</PackageVersion>
 		<TargetFrameworks>net8.0</TargetFrameworks>
 		<PackageProjectUrl>https://github.com/vipwan/Biwen.Microsoft.Extensions.ServiceDiscovery.Consul</PackageProjectUrl>
 		<Authors>万雅虎</Authors>
@@ -17,8 +17,8 @@
 		<PackageTags>ServiceDiscovery;Consul</PackageTags>
 		<PackageReleaseNotes>Upgrade to Microsoft.Extensions.ServiceDiscovery 8.1.0</PackageReleaseNotes>
 		<PackageLicenseFile>LICENSE.txt</PackageLicenseFile>
-		<AssemblyVersion>1.0.1</AssemblyVersion>
-		<FileVersion>1.0.0</FileVersion>
+		<AssemblyVersion>$(PackageVersion)</AssemblyVersion>
+		<FileVersion>$(PackageVersion)</FileVersion>
 		<NoWarn>IDE0130;</NoWarn>
 
 	</PropertyGroup>
@@ -36,7 +36,7 @@
 
 	<ItemGroup>
 		<PackageReference Include="Consul.AspNetCore" Version="1.7.14.4" />
-		<PackageReference Include="Microsoft.Extensions.ServiceDiscovery" Version="8.1.0" />
+		<PackageReference Include="Microsoft.Extensions.ServiceDiscovery" Version="8.2.0" />
 	</ItemGroup>
 
 </Project>
