@@ -1,4 +1,8 @@
-﻿using System.Diagnostics.CodeAnalysis;
+﻿// Licensed to the Biwen.Microsoft.Extensions.ServiceDiscovery under one or more agreements.
+// The Biwen.Microsoft.Extensions.ServiceDiscovery licenses this file to you under the MIT license.
+// See the LICENSE file in the project root for more information.
+
+using System.Diagnostics.CodeAnalysis;
 using System.Net;
 
 namespace Biwen.Microsoft.Extensions.ServiceDiscovery.Internal;

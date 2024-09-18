@@ -1,4 +1,8 @@
-﻿using Consul.AspNetCore;
+﻿// Licensed to the DemoApp under one or more agreements.
+// The DemoApp licenses this file to you under the MIT license.
+// See the LICENSE file in the project root for more information.
+
+using Consul.AspNetCore;
 using System.Text.Json.Serialization;
 
 var builder = WebApplication.CreateSlimBuilder(args);
