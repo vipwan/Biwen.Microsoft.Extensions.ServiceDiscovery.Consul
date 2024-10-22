@@ -19,16 +19,15 @@ builder.Services.AddConsul(o =>
 {
     // Consul地址.如果非本地请修改
     o.Address = new("http://127.0.0.1:8500");
-
-}).AddConsulServiceRegistration(cfg =>
+}).AddConsulServiceRegistration(registrationConfig =>
     {
-        cfg.Meta = new Dictionary<string, string>() { { "Weight", "1" } };
-        cfg.ID = "SVC1";
-        cfg.Port = 5124;
-        cfg.Name = "todo";
-        cfg.Address = "http://127.0.0.1";
-        cfg.Tags = ["MicroSvc"];
-        cfg.Check = new Consul.AgentServiceCheck
+        registrationConfig.Meta = new Dictionary<string, string>() { { "Weight", "1" } };
+        registrationConfig.ID = "SVC1";
+        registrationConfig.Port = 5124;
+        registrationConfig.Name = "todo";
+        registrationConfig.Address = "http://127.0.0.1";
+        registrationConfig.Tags = ["MicroSvc"];
+        registrationConfig.Check = new Consul.AgentServiceCheck
         {
             DeregisterCriticalServiceAfter = TimeSpan.FromSeconds(15),//服务启动多久后注册
             Interval = TimeSpan.FromSeconds(15),//健康检查时间间隔，或者称为心跳间隔
