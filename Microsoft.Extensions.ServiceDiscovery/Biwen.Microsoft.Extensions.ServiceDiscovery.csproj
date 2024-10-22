@@ -15,7 +15,7 @@
 		<Copyright>MIT</Copyright>
 		<PackageReadmeFile>README.md</PackageReadmeFile>
 		<PackageTags>ServiceDiscovery;Consul</PackageTags>
-		<PackageReleaseNotes>Upgrade to Microsoft.Extensions.ServiceDiscovery 8.1.0</PackageReleaseNotes>
+		<PackageReleaseNotes>Upgrade to Microsoft.Extensions.ServiceDiscovery 8.2.1</PackageReleaseNotes>
 		<PackageLicenseFile>LICENSE.txt</PackageLicenseFile>
 		<AssemblyVersion>$(PackageVersion)</AssemblyVersion>
 		<FileVersion>$(PackageVersion)</FileVersion>
