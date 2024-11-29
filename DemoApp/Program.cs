@@ -5,6 +5,8 @@
 using Consul.AspNetCore;
 using System.Text.Json.Serialization;
 
+Console.WriteLine($"Biwen.Microsoft.Extensions.ServiceDiscovery Version:{Biwen.Microsoft.Extensions.ServiceDiscovery.Generated.AssemblyMetadata.Version}");
+
 var builder = WebApplication.CreateSlimBuilder(args);
 
 //健康监测
