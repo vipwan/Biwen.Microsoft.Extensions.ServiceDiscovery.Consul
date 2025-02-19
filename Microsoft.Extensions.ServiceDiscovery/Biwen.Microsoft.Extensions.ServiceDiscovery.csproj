@@ -34,7 +34,7 @@
 	</ItemGroup>
 
 	<ItemGroup>
-		<PackageReference Include="Biwen.AutoClassGen" Version="1.5.4" PrivateAssets="all" />
+		<PackageReference Include="Biwen.AutoClassGen" Version="1.5.5" PrivateAssets="all" />
 		<PackageReference Include="Consul.AspNetCore" Version="1.7.14.7" />
 		<PackageReference Include="Microsoft.Extensions.ServiceDiscovery" Version="9.0.0" />
 	</ItemGroup>
