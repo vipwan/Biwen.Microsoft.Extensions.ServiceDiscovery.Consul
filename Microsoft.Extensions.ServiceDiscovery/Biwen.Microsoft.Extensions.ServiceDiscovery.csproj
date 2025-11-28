@@ -1,11 +1,11 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
 	<PropertyGroup>
-		<TargetFrameworks>net8.0;net9.0</TargetFrameworks>
+		<TargetFrameworks>net8.0;net9.0;net10.0</TargetFrameworks>
 		<ImplicitUsings>enable</ImplicitUsings>
 		<Nullable>enable</Nullable>
 
-		<PackageVersion>1.1.0</PackageVersion>
+		<PackageVersion>1.2.0</PackageVersion>
 		<PackageProjectUrl>https://github.com/vipwan/Biwen.Microsoft.Extensions.ServiceDiscovery.Consul</PackageProjectUrl>
 		<Authors>万雅虎</Authors>
 		<RepositoryUrl>https://github.com/vipwan/Biwen.Microsoft.Extensions.ServiceDiscovery.Consul</RepositoryUrl>
@@ -14,7 +14,7 @@
 		<Copyright>MIT</Copyright>
 		<PackageReadmeFile>README.md</PackageReadmeFile>
 		<PackageTags>ServiceDiscovery;Consul</PackageTags>
-		<PackageReleaseNotes>Upgrade to Microsoft.Extensions.ServiceDiscovery 9.0.0</PackageReleaseNotes>
+		<PackageReleaseNotes>Upgrade to Microsoft.Extensions.ServiceDiscovery 10.0.0</PackageReleaseNotes>
 		<PackageLicenseFile>LICENSE.txt</PackageLicenseFile>
 		<AssemblyVersion>$(PackageVersion)</AssemblyVersion>
 		<FileVersion>$(PackageVersion)</FileVersion>
@@ -34,9 +34,9 @@
 	</ItemGroup>
 
 	<ItemGroup>
-		<PackageReference Include="Biwen.AutoClassGen" Version="1.5.5" PrivateAssets="all" />
-		<PackageReference Include="Consul.AspNetCore" Version="1.7.14.7" />
-		<PackageReference Include="Microsoft.Extensions.ServiceDiscovery" Version="9.0.0" />
+		<PackageReference Include="Biwen.AutoClassGen" Version="1.8.7" PrivateAssets="all" />
+		<PackageReference Include="Consul.AspNetCore" Version="1.7.14.9" />
+		<PackageReference Include="Microsoft.Extensions.ServiceDiscovery" Version="10.0.0" />
 	</ItemGroup>
 
 </Project>
